@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Place Bar & Spa</title>
+    <link rel="stylesheet" href="Spa&Bar.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1>Secret Place Bar & Spa</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#massages">Massages</a></li>
+                    <li><a href="https://www.secretplacebarandspa.com/" target="_blank">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Homepage Section -->
+    <section id="home" class="home-section">
+        <div class="container">
+            <h2 style="color: #d4af37;">Relax and Unwind at Secret Place</h2>
+            <p style="color: #d4af37;">Experience luxury, serenity, and rejuvenation at our exclusive bar and spa.</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="service-list">
+            <div class="container">
+                <!-- Massages Section -->
+                <article id="massages" class="service">
+                    <h2>Signature Aromatherapy Massage</h2>
+                    <p>Relax and rejuvenate with our signature aromatherapy treatment.</p>
+                    <p>Duration: 60 minutes</p>
+                    <p>$80</p>
+                    <button onclick="openBookingModal('Signature Aromatherapy Massage', 80)">Book Now</button>
+                </article>
+
+                <article class="service">
+                    <h2>Deep Tissue Massage</h2>
+                    <p>Target muscle tension and achieve deep relaxation with our deep tissue therapy.</p>
+                    <p>Duration: 90 minutes</p>
+                    <p>$120</p>
+                    <button onclick="openBookingModal('Deep Tissue Massage', 120)">Book Now</button>
+                </article>
+
+                <article class="service">
+                    <h2>Hot Stone Therapy</h2>
+                    <p>Indulge in a soothing hot stone massage for the ultimate relaxation experience.</p>
+                    <p>Duration: 75 minutes</p>
+                    <p>$100</p>
+                    <button onclick="openBookingModal('Hot Stone Therapy', 100)">Book Now</button>
+                </article>
+
+                <!-- Bar Services Section -->
+                <article class="service">
+                    <h2>Signature Cocktails</h2>
+                    <p>Enjoy expertly crafted cocktails made from the finest spirits.</p>
+                    <p>$12 - $18</p>
+                    <button onclick="openBookingModal('Signature Cocktails', 15)">Order Now</button>
+                </article>
+
+                <article class="service">
+                    <h2>Premium Wine Selection</h2>
+                    <p>Explore our premium wine collection, carefully selected from the finest vineyards.</p>
+                    <p>$25 - $75</p>
+                    <button onclick="openBookingModal('Premium Wine Selection', 50)">Order Now</button>
+                </article>
+
+                <article class="service">
+                    <h2>Craft Beers</h2>
+                    <p>Enjoy a variety of locally crafted beers.</p>
+                    <p>$6 - $10</p>
+                    <button onclick="openBookingModal('Craft Beers', 8)">Order Now</button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Secret Place Bar & Spa</p>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeBookingModal()">&times;</span>
+            <h2>Book Your Service</h2>
+            <form id="bookingForm">
+                <input type="hidden" id="serviceName" name="serviceName">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openBookingModal(serviceName, price) {
+            document.getElementById('bookingModal').style.display = 'block';
+            document.getElementById('serviceName').value = serviceName;
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            closeBookingModal();
+            alert('Service booking submitted for ' + document.getElementById('serviceName').value);
+        });
+    </script>
+</body>
+</html>
